@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: demoProject
+
+  main:
+    banner-mode: off
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/demo
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+springdoc:
+
+  api-docs:
+    path: /api-docs
+
+  show-actuator: true
+
+  swagger-ui:
+    enabled: true
+
+server:
+  port: 8080
