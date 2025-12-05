@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.UserAdminDto;
 import com.example.demo.entity.Task;
 import com.example.demo.entity.TaskGroup;
 import com.example.demo.entity.User;
@@ -58,5 +59,12 @@ public class AdminService {
                         task -> task.getGroup() != null ? task.getGroup().getName() : "Без группы",
                         Collectors.counting()
                 ));
+    }
+
+    public List<UserAdminDto> searchUsers(String name) {
+        return userRepository.findByNameContains(name)
+                .stream()
+                .map(u -> new UserAdminDto(u.getId(), u.getName(), u.getEmail(), u.getRole().name()))
+                .toList();
     }
 }

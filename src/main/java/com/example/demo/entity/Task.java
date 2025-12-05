@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -22,23 +23,54 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getTitle() {
+        return title;
+    }
 
-    public TaskStatus getStatus() { return status; }
-    public void setStatus(TaskStatus status) { this.status = status; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public TaskGroup getGroup() { return group; }
-    public void setGroup(TaskGroup group) { this.group = group; }
+    public String getDescription() {
+        return description;
+    }
 
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
+
+    public TaskGroup getGroup() {
+        return group;
+    }
+
+    public void setGroup(TaskGroup group) {
+        this.group = group;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

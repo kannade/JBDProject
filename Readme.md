@@ -116,3 +116,4 @@ Swagger UI: `http://localhost:8080/swagger-ui/index.html`
 | GET   | `/api/admin/users/{userId}/tasks`    | Задачи конкретного пользователя |
 | GET   | `/api/admin/tasks/statistics/status` | Статистика задач по статусам    |
 | GET   | `/api/admin/tasks/statistics/group`  | Статистика задач по группам     |
+| GET   | `/api/admin/users/search`            | Поиск пользователей по имени (пример SQL-запроса)     |

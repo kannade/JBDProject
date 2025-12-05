@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.*;
 import com.example.demo.entity.TaskStatus;
+import com.example.demo.entity.User;
 import com.example.demo.service.AdminService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
@@ -83,5 +84,13 @@ public class AdminController {
     @GetMapping("/tasks/statistics/group")
     public Map<String, Long> getTaskCountByGroup() {
         return adminService.getTaskCountByGroup();
+    }
+
+    @Operation(summary = "Поиск пользователей по имени (пример SQL-запроса)")
+    @GetMapping("/users/search")
+    public List<UserAdminDto> searchUsers(
+            @RequestParam String name
+    ) {
+        return adminService.searchUsers(name);
     }
 }
